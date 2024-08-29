@@ -1,5 +1,7 @@
 import { MantineProvider } from '@mantine/core';
 import LandingHeader from '../common/LandingHeader';
+import LandingFooter from '../common/LandingFooter';
+import * as ConstantStyle from '../common/Constant';
 
 const Landing = () => {
     return (
@@ -13,12 +15,18 @@ const Landing = () => {
                     a: {
                         color: 'inherit!important',
                     },
-                    body: {},
+                    body: {
+                        color: ConstantStyle.COLOR_BLACK,
+                    },
                 }),
             }}
         >
             {/* 헤더 */}
             <LandingHeader />
+            {/* 바디 */}
+            
+            {/* 푸터 */}
+            <LandingFooter />
         </MantineProvider>
     );
 };

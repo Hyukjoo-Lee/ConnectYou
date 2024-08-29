@@ -12,6 +12,7 @@ import {
 import { Link } from 'react-router-dom';
 import { useMediaQuery } from '@mantine/hooks';
 import {IconFriends} from '@tabler/icons';
+import * as ConstantStyle from '../common/Constant';
 
 const useStyles = createStyles((_theme, _params, _getRef) => ({
     header: {
@@ -120,7 +121,7 @@ const LandingHeader = () => {
                                             color="dark"
                                             to="/"
                                         >
-                                            디자인
+                                            템플렛
                                         </Anchor>
                                         <Anchor
                                             fz="lg"
