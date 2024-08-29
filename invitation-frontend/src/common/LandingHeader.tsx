@@ -10,8 +10,8 @@ import {
     MantineProvider,
 } from '@mantine/core';
 import { Link } from 'react-router-dom';
-
 import { useMediaQuery } from '@mantine/hooks';
+import {IconFriends} from '@tabler/icons';
 
 const useStyles = createStyles((_theme, _params, _getRef) => ({
     header: {
@@ -31,7 +31,6 @@ const useStyles = createStyles((_theme, _params, _getRef) => ({
         flexWrap: 'nowrap',
     },
     logo: {
-        margin: -5,
         fontSize: 25,
         fontWeight: 400,
     },
@@ -90,7 +89,7 @@ const LandingHeader = () => {
                                         to="/"
                                     >
                                         <Text weight={700} component="span">
-                                            Invite
+                                            Connect
                                         </Text>
                                         You
                                     </Anchor>
@@ -136,6 +135,8 @@ const LandingHeader = () => {
 
                                         <Button
                                             ml={10}
+                                            size="md"
+                                            p={12}
                                             color="lime.5"
                                             variant="filled"
                                         >
@@ -198,10 +199,14 @@ const LandingHeader = () => {
                                             </Anchor>
                                         </Button>
                                     </Group>
-                                    <Group
-                                        className={classes.gnbLists}
-                                        ml={20}
-                                    ></Group>
+                                    <Group className={classes.gnbLists} ml={20}>
+                                        <Button
+                                            leftIcon={<IconFriends />}
+                                            variant="white"
+                                        >
+                                            마이페이지
+                                        </Button>
+                                    </Group>
                                 </Container>
                             </Grid.Col>
                         </Grid>
