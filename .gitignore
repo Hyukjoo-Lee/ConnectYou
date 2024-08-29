@@ -4,6 +4,7 @@
 /node_modules
 /.pnp
 .pnp.js
+playground-1.mongodb.js
 
 # testing
 /coverage

@@ -1,15 +1,15 @@
 import express from 'express'
+import connectDB from './utils/connectDB'
 
 const app = express()
 const port = 5000 // default port
 
-// route handler for default home page
-app.get('/', (req, res) => {
+app.get('/', (req, res) => { // route handler for default home page
     res.send('Hello World!')
 })
-
 app.listen(port, () => {
     console.log(`server started at http://localhost:${port}`)
+    connectDB()
 })
 
 export default app
