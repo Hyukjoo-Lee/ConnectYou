@@ -29,6 +29,7 @@ const LandingFooter = () => {
         <>
             <MantineProvider
                 theme={{
+                    fontFamily: 'Roboto',
                     globalStyles: (_theme) => ({
                         '*, *::before, *::after': {
                             boxSizing: 'border-box',

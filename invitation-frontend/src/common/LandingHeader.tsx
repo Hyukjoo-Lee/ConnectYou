@@ -11,7 +11,7 @@ import {
 } from '@mantine/core';
 import { Link } from 'react-router-dom';
 import { useMediaQuery } from '@mantine/hooks';
-import {IconFriends} from '@tabler/icons';
+import { IconFriends } from '@tabler/icons';
 import * as ConstantStyle from '../common/Constant';
 
 const useStyles = createStyles((_theme, _params, _getRef) => ({
@@ -59,6 +59,7 @@ const LandingHeader = () => {
         <>
             <MantineProvider
                 theme={{
+                    fontFamily: 'Roboto',
                     globalStyles: (_theme) => ({
                         '*, *::before, *::after': {
                             boxSizing: 'border-box',
@@ -108,10 +109,9 @@ const LandingHeader = () => {
                                             underline={false}
                                             className={classes.gnbList}
                                             color="dark"
-                                            weight={700}
                                             to="/"
                                         >
-                                            모바일 청첩장
+                                            고객센터
                                         </Anchor>
                                         <Anchor
                                             fz="lg"
@@ -123,22 +123,12 @@ const LandingHeader = () => {
                                         >
                                             템플렛
                                         </Anchor>
-                                        <Anchor
-                                            fz="lg"
-                                            component={Link}
-                                            underline={false}
-                                            className={classes.gnbList}
-                                            color="dark"
-                                            to="/"
-                                        >
-                                            고객센터
-                                        </Anchor>
 
                                         <Button
                                             ml={10}
                                             size="md"
                                             p={12}
-                                            color="lime.5"
+                                            color="yellow"
                                             variant="filled"
                                         >
                                             <Anchor
@@ -146,7 +136,7 @@ const LandingHeader = () => {
                                                 underline={false}
                                                 to="/builder"
                                             >
-                                                지금 바로 제작하기
+                                                제작하기
                                             </Anchor>
                                         </Button>
                                     </Group>
