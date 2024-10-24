@@ -1,7 +1,5 @@
 import {
-    Anchor,
     Box,
-    Button,
     Container,
     createStyles,
     Grid,
@@ -9,7 +7,7 @@ import {
     Stack,
     Text,
 } from '@mantine/core';
-import { Link } from 'react-router-dom';
+import CustomButton from './CustomButton';
 
 const useStyles = createStyles((_theme, _params, _getRef) => ({
     trialBtn: {
@@ -46,20 +44,12 @@ const LandingBody = () => {
                                 <Text size={40} fw={700}>
                                     모바일 초정장을 직접 만들어보세요
                                 </Text>
-                                <Button
+                                <CustomButton
+                                    to={''}
+                                    mt={10}
+                                    children={'제작하기'}
                                     color="yellow"
-                                    className={classes.trialBtn}
-                                    mt={30}
-                                    uppercase
-                                >
-                                    <Anchor
-                                        component={Link}
-                                        underline={false}
-                                        to="/builder"
-                                    >
-                                        제작하기
-                                    </Anchor>
-                                </Button>
+                                />
                             </Stack>
                         </Grid.Col>
 

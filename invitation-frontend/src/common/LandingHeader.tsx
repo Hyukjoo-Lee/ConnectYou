@@ -12,7 +12,7 @@ import {
 import { Link } from 'react-router-dom';
 import { useMediaQuery } from '@mantine/hooks';
 import { IconFriends } from '@tabler/icons';
-import * as ConstantStyle from '../common/Constant';
+import CustomButton from './CustomButton';
 
 const useStyles = createStyles((_theme, _params, _getRef) => ({
     header: {
@@ -123,22 +123,12 @@ const LandingHeader = () => {
                                         >
                                             템플렛
                                         </Anchor>
-
-                                        <Button
-                                            ml={10}
-                                            size="md"
-                                            p={12}
+                                        <CustomButton
+                                            to={''}
+                                            children={'제작하기'}
                                             color="yellow"
-                                            variant="filled"
-                                        >
-                                            <Anchor
-                                                component={Link}
-                                                underline={false}
-                                                to="/builder"
-                                            >
-                                                제작하기
-                                            </Anchor>
-                                        </Button>
+                                            ml={15}
+                                        />
                                     </Group>
                                 </Container>
                             </Grid.Col>
@@ -155,48 +145,30 @@ const LandingHeader = () => {
                                                 : 'block',
                                         }}
                                     >
-                                        <Button
-                                            mr={10}
-                                            size="md"
-                                            p={12}
-                                            color="yellow"
+                                        <CustomButton
+                                            to={'Login'}
+                                            children={'로그인'}
                                             variant="default"
-                                            uppercase
-                                        >
-                                            <Anchor
-                                                component={Link}
-                                                underline={false}
-                                                className={classes.gnbList}
-                                                to="/Login"
-                                            >
-                                                로그인
-                                            </Anchor>
-                                        </Button>
-
-                                        <Button
                                             mr={10}
-                                            size="md"
                                             p={12}
-                                            color="yellow"
+                                        />
+                                        <CustomButton
+                                            to={'Login'}
+                                            children={'회원가입'}
                                             variant="default"
-                                            uppercase
-                                        >
-                                            <Anchor
-                                                component={Link}
-                                                underline={false}
-                                                to="/Register"
-                                            >
-                                                회원가입
-                                            </Anchor>
-                                        </Button>
+                                            mr={10}
+                                            p={12}
+                                        />
                                     </Group>
                                     <Group className={classes.gnbLists} ml={20}>
-                                        <Button
+                                        <CustomButton
                                             leftIcon={<IconFriends />}
+                                            to={'Login'}
+                                            children={'마이페이지'}
                                             variant="white"
-                                        >
-                                            마이페이지
-                                        </Button>
+                                            mr={10}
+                                            p={12}
+                                        />
                                     </Group>
                                 </Container>
                             </Grid.Col>
