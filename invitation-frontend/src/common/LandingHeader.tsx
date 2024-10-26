@@ -26,10 +26,12 @@ const useStyles = createStyles((_theme, _params, _getRef) => ({
     headerLeft: {
         display: 'flex',
         flexWrap: 'nowrap',
+        alignItems: 'center',
     },
     headerRight: {
         display: 'flex',
         flexWrap: 'nowrap',
+        alignItems: 'center',
     },
     logo: {
         fontSize: 25,
@@ -37,15 +39,15 @@ const useStyles = createStyles((_theme, _params, _getRef) => ({
     },
     gnbLists: {
         display: 'flex',
-        alignItem: 'center',
+        alignItems: 'center',
         fontSize: 16,
         whiteSpace: 'nowrap',
-        gap: 10,
+        gap: 15,
         marginLeft: 30,
     },
     gnbList: {
-        paddingLeft: 5,
-        paddingRight: 5,
+        paddingLeft: 10,
+        paddingRight: 10,
         fontSize: 16,
         fontWeight: 600,
     },
@@ -98,21 +100,9 @@ const LandingHeader = () => {
                                     <Group
                                         className={classes.gnbLists}
                                         style={{
-                                            display: RESPONSIVE_MOBILE
-                                                ? 'none'
-                                                : 'block',
+                                            display: RESPONSIVE_MOBILE ? 'none' : 'flex',
                                         }}
                                     >
-                                        <Anchor
-                                            fz="lg"
-                                            component={Link}
-                                            underline={false}
-                                            className={classes.gnbList}
-                                            color="dark"
-                                            to="/"
-                                        >
-                                            고객센터
-                                        </Anchor>
                                         <Anchor
                                             fz="lg"
                                             component={Link}
@@ -123,15 +113,20 @@ const LandingHeader = () => {
                                         >
                                             템플렛
                                         </Anchor>
-                                        <CustomButton
-                                            to={''}
-                                            children={'제작하기'}
-                                            color="yellow"
-                                            ml={15}
-                                        />
+                                        <Anchor
+                                            fz="lg"
+                                            component={Link}
+                                            underline={false}
+                                            className={classes.gnbList}
+                                            color="dark"
+                                            to="/"
+                                        >
+                                            고객센터
+                                        </Anchor>
                                     </Group>
                                 </Container>
                             </Grid.Col>
+
                             <Grid.Col span="content">
                                 <Container
                                     className={classes.headerRight}
@@ -140,20 +135,19 @@ const LandingHeader = () => {
                                     <Group
                                         className={classes.gnbLists}
                                         style={{
-                                            display: RESPONSIVE_MOBILE
-                                                ? 'none'
-                                                : 'block',
+                                            display: RESPONSIVE_MOBILE ? 'none' : 'flex',
+                                            gap: 15, 
                                         }}
                                     >
                                         <CustomButton
-                                            to={'Login'}
+                                            to={'/'}
                                             children={'로그인'}
                                             variant="default"
                                             mr={10}
                                             p={12}
                                         />
                                         <CustomButton
-                                            to={'Login'}
+                                            to={'/'}
                                             children={'회원가입'}
                                             variant="default"
                                             mr={10}
@@ -163,10 +157,9 @@ const LandingHeader = () => {
                                     <Group className={classes.gnbLists} ml={20}>
                                         <CustomButton
                                             leftIcon={<IconFriends />}
-                                            to={'Login'}
+                                            to={'/'}
                                             children={'마이페이지'}
                                             variant="white"
-                                            mr={10}
                                             p={12}
                                         />
                                     </Group>
