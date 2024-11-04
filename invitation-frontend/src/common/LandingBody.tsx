@@ -30,15 +30,15 @@ const LandingBody = () => {
     // const RESPOSIVE_TABLET = useMediaQuery('(max-width: 900px)');
 
     return (
-        <>
+        <Container size={1400}>
             {/* 헤더 90, */}
             {/* Container 1 */}
-            <Container h={790} bg={'#EBEBEB'} fluid>
+            <Container h={840} pt={90} fluid>
                 <Grid grow justify="space-between" align="center">
                     {/* 첫 번째 열: 텍스트 */}
                     {/* 12 : 행너비의 100%
                         8 : 행너비의 50% */}
-                    <Grid.Col span={RESPONSIVE_MOBILE ? 12 : 6} mt={100}>
+                    <Grid.Col span={RESPONSIVE_MOBILE ? 12 : 6}>
                         <Stack spacing={5} justify="center" ml={20}>
                             <Text size={40} fw={500}>
                                 결혼 준비를 하고 계십니까?
@@ -62,22 +62,22 @@ const LandingBody = () => {
                                 src={require('../assets/images/mockup_1.png')}
                                 alt="mockup1"
                                 width={205}
-                                height={623}
-                                mr={50}
+                                height={630}
+                                mr={70}
                             />
                             <Image
-                                src={require('../assets/images/mockup_2.png')}
+                                src={require('../assets/images/mockup_1.png')}
                                 alt="mockup2"
                                 width={205}
-                                height={623}
-                                mr={20}
+                                height={630}
+                                mr={5}
                             />
                         </Box>
                     </Grid.Col>
                 </Grid>
             </Container>
             {/* Container 2 */}
-            <Container h={700} fluid ml={20}>
+            <Container h={790} fluid>
                 <Grid grow justify="space-between" align="center">
                     <Grid.Col span={6} mt={90}>
                         <Box>
@@ -114,10 +114,10 @@ const LandingBody = () => {
                 </Grid>
             </Container>
             {/* Container 3 */}
-            <Container h={700} fluid>
+            <Container h={790} fluid>
                 <Grid grow justify="space-between" align="center" ml={20}>
                     <Grid.Col span={RESPONSIVE_MOBILE ? 12 : 6} mt={90}>
-                        <Stack spacing={45} justify="center" >
+                        <Stack spacing={45} justify="center">
                             <Text size={20} fw={500}>
                                 OUR BENEFIT 2
                             </Text>
@@ -167,14 +167,19 @@ const LandingBody = () => {
                         </Box>
                         <Box>
                             <Grid>
-                                <Grid.Col span={6}> 
+                                <Grid.Col span={6}>
                                     <Text size={15} weight={700} mt={5}>
                                         청첩장 템플렛 제목
                                     </Text>
                                     <Text>청접장 설명</Text>
                                 </Grid.Col>
                                 <Grid.Col span={6}>
-                                    <Text size={15} mt={5} weight={700} align='right'>
+                                    <Text
+                                        size={15}
+                                        mt={5}
+                                        weight={700}
+                                        align="right"
+                                    >
                                         가격
                                     </Text>
                                 </Grid.Col>
@@ -194,14 +199,19 @@ const LandingBody = () => {
                         </Box>
                         <Box>
                             <Grid>
-                                <Grid.Col span={6}> 
+                                <Grid.Col span={6}>
                                     <Text size={15} weight={700} mt={5}>
                                         청첩장 템플렛 제목
                                     </Text>
                                     <Text>청접장 설명</Text>
                                 </Grid.Col>
                                 <Grid.Col span={6}>
-                                    <Text size={15} mt={5} weight={700} align='right'>
+                                    <Text
+                                        size={15}
+                                        mt={5}
+                                        weight={700}
+                                        align="right"
+                                    >
                                         가격
                                     </Text>
                                 </Grid.Col>
@@ -221,14 +231,19 @@ const LandingBody = () => {
                         </Box>
                         <Box>
                             <Grid>
-                                <Grid.Col span={6}> 
+                                <Grid.Col span={6}>
                                     <Text size={15} weight={700} mt={5}>
                                         청첩장 템플렛 제목
                                     </Text>
                                     <Text>청접장 설명</Text>
                                 </Grid.Col>
                                 <Grid.Col span={6}>
-                                    <Text size={15} mt={5} weight={700} align='right'>
+                                    <Text
+                                        size={15}
+                                        mt={5}
+                                        weight={700}
+                                        align="right"
+                                    >
                                         가격
                                     </Text>
                                 </Grid.Col>
@@ -248,24 +263,28 @@ const LandingBody = () => {
                         </Box>
                         <Box>
                             <Grid>
-                                <Grid.Col span={6}> 
+                                <Grid.Col span={6}>
                                     <Text size={15} weight={700} mt={5}>
                                         청첩장 템플렛 제목
                                     </Text>
                                     <Text>청접장 설명</Text>
                                 </Grid.Col>
                                 <Grid.Col span={6}>
-                                    <Text size={15} mt={5} weight={700} align='right'>
+                                    <Text
+                                        size={15}
+                                        mt={5}
+                                        weight={700}
+                                        align="right"
+                                    >
                                         가격
                                     </Text>
                                 </Grid.Col>
                             </Grid>
                         </Box>
                     </Grid.Col>
-                   
                 </Grid>
             </Container>
-        </>
+        </Container>
     );
 };
 

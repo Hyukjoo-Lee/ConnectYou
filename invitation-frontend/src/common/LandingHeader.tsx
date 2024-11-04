@@ -4,7 +4,6 @@ import {
     Text,
     Container,
     createStyles,
-    Button,
     Group,
     Anchor,
     MantineProvider,
@@ -100,7 +99,9 @@ const LandingHeader = () => {
                                     <Group
                                         className={classes.gnbLists}
                                         style={{
-                                            display: RESPONSIVE_MOBILE ? 'none' : 'flex',
+                                            display: RESPONSIVE_MOBILE
+                                                ? 'none'
+                                                : 'flex',
                                         }}
                                     >
                                         <Anchor
@@ -135,8 +136,10 @@ const LandingHeader = () => {
                                     <Group
                                         className={classes.gnbLists}
                                         style={{
-                                            display: RESPONSIVE_MOBILE ? 'none' : 'flex',
-                                            gap: 15, 
+                                            display: RESPONSIVE_MOBILE
+                                                ? 'none'
+                                                : 'flex',
+                                            gap: 15,
                                         }}
                                     >
                                         <CustomButton
