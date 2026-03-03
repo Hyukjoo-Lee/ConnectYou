@@ -1,179 +1,130 @@
 import {
-    Header,
-    Grid,
-    Text,
-    Container,
-    createStyles,
-    Group,
-    Anchor,
-    MantineProvider,
+  Header,
+  Grid,
+  Text,
+  Container,
+  Group,
+  Anchor,
+  Menu,
+  Drawer,
+  Burger,
+  Stack,
 } from '@mantine/core';
 import { Link } from 'react-router-dom';
-import { useMediaQuery } from '@mantine/hooks';
+import { useMediaQuery, useDisclosure } from '@mantine/hooks';
 import { IconFriends } from '@tabler/icons';
 import CustomButton from './CustomButton';
 
-const useStyles = createStyles((_theme, _params, _getRef) => ({
-    header: {
-        border: 'none',
-        position: 'fixed',
-        width: '100%',
-        left: 0,
-        top: 0,
-        backgroundColor: 'transparent',
-    },
-    headerLeft: {
-        display: 'flex',
-        flexWrap: 'nowrap',
-        alignItems: 'center',
-    },
-    headerRight: {
-        display: 'flex',
-        flexWrap: 'nowrap',
-        alignItems: 'center',
-    },
-    logo: {
-        fontSize: 25,
-        fontWeight: 400,
-    },
-    gnbLists: {
-        display: 'flex',
-        alignItems: 'center',
-        fontSize: 16,
-        whiteSpace: 'nowrap',
-        gap: 15,
-        marginLeft: 30,
-    },
-    gnbList: {
-        paddingLeft: 10,
-        paddingRight: 10,
-        fontSize: 16,
-        fontWeight: 600,
-    },
-}));
-
 const LandingHeader = () => {
-    const { classes } = useStyles();
-    const RESPONSIVE_MOBILE = useMediaQuery('(max-width: 767px)');
+  const MOBILE = useMediaQuery('(max-width: 767px)');
+  const [opened, { toggle, close }] = useDisclosure(false);
 
-    return (
-        <>
-            <MantineProvider
-                theme={{
-                    fontFamily: 'Roboto',
-                    globalStyles: (_theme) => ({
-                        '*, *::before, *::after': {
-                            boxSizing: 'border-box',
-                        },
-                        body: {},
-                        a: {
-                            color: 'inherit!important',
-                        },
-                    }),
-                }}
-            >
-                {/* HEADER */}
-                <Header
-                    height={RESPONSIVE_MOBILE ? 60 : 90}
-                    className={classes.header}
-                    py={RESPONSIVE_MOBILE ? 10 : 25}
-                >
-                    <Container size={1400}>
-                        <Grid justify="space-between" align="center">
-                            <Grid.Col span={6}>
-                                <Container
-                                    className={classes.headerLeft}
-                                    px={RESPONSIVE_MOBILE ? 0 : 20}
-                                >
-                                    <Anchor
-                                        component={Link}
-                                        underline={false}
-                                        className={classes.logo}
-                                        to="/"
-                                    >
-                                        <Text weight={700} component="span">
-                                            Connect
-                                        </Text>
-                                        You
-                                    </Anchor>
-                                    <Group
-                                        className={classes.gnbLists}
-                                        style={{
-                                            display: RESPONSIVE_MOBILE
-                                                ? 'none'
-                                                : 'flex',
-                                        }}
-                                    >
-                                        <Anchor
-                                            fz="lg"
-                                            component={Link}
-                                            underline={false}
-                                            className={classes.gnbList}
-                                            color="dark"
-                                            to="/"
-                                        >
-                                            템플렛
-                                        </Anchor>
-                                        <Anchor
-                                            fz="lg"
-                                            component={Link}
-                                            underline={false}
-                                            className={classes.gnbList}
-                                            color="dark"
-                                            to="/"
-                                        >
-                                            고객센터
-                                        </Anchor>
-                                    </Group>
-                                </Container>
-                            </Grid.Col>
+  return (
+    <>
+      <Header
+        height={MOBILE ? 60 : 90}
+        px="md"
+        sx={{
+          position: 'fixed',
+          width: '100%',
+          top: 0,
+          backgroundColor: 'white',
+          borderBottom: '1px solid #eee',
+          zIndex: 100,
+        }}
+      >
+        <Container size="lg" h="100%">
+          <Grid align="center" justify="space-between" h="100%">
 
-                            <Grid.Col span="content">
-                                <Container
-                                    className={classes.headerRight}
-                                    px={RESPONSIVE_MOBILE ? 0 : 20}
-                                >
-                                    <Group
-                                        className={classes.gnbLists}
-                                        style={{
-                                            display: RESPONSIVE_MOBILE
-                                                ? 'none'
-                                                : 'flex',
-                                            gap: 15,
-                                        }}
-                                    >
-                                        <CustomButton
-                                            to={'/'}
-                                            children={'로그인'}
-                                            variant="default"
-                                            mr={10}
-                                            p={12}
-                                        />
-                                        <CustomButton
-                                            to={'/'}
-                                            children={'회원가입'}
-                                            variant="default"
-                                            mr={10}
-                                            p={12}
-                                        />
-                                    </Group>
-                                    <Group className={classes.gnbLists} ml={20}>
-                                        <CustomButton
-                                            leftIcon={<IconFriends />}
-                                            to={'/'}
-                                            children={'마이페이지'}
-                                            variant="white"
-                                            p={12}
-                                        />
-                                    </Group>
-                                </Container>
-                            </Grid.Col>
-                        </Grid>
-                    </Container>
-                </Header>
-            </MantineProvider>
-        </>
-    );
+            {/* 로고 */}
+            <Grid.Col span="content">
+              <Anchor component={Link} underline={false} to="/">
+                <Text fw={700} size="xl">
+                  Connect<span style={{ fontWeight: 400 }}>You</span>
+                </Text>
+              </Anchor>
+            </Grid.Col>
+
+            {/* 데스크탑 메뉴 */}
+            {!MOBILE && (
+              <Grid.Col span="content">
+                <Group spacing={30}>
+                  <Menu trigger="hover" withinPortal>
+                    <Menu.Target>
+                      <Anchor fw={600} style={{ cursor: 'pointer' }}>
+                        템플렛
+                      </Anchor>
+                    </Menu.Target>
+
+                    <Menu.Dropdown>
+                      <Menu.Item component={Link} to="/wedding/jwds">
+                        정우형 ♥ 다솜씨
+                      </Menu.Item>
+                      <Menu.Item component={Link} to="/wedding/sample">
+                        샘플 청첩장
+                      </Menu.Item>
+                    </Menu.Dropdown>
+                  </Menu>
+
+                  <Anchor component={Link} to="/" fw={600}>
+                    고객센터
+                  </Anchor>
+
+                  <CustomButton to="/" children="로그인" variant="default" />
+                  <CustomButton to="/" children="회원가입" variant="default" />
+                  <CustomButton
+                    leftIcon={<IconFriends size={16} />}
+                    to="/"
+                    children="마이페이지"
+                    variant="white"
+                  />
+                </Group>
+              </Grid.Col>
+            )}
+
+            {/* 모바일 햄버거 */}
+            {MOBILE && (
+              <Grid.Col span="content">
+                <Burger opened={opened} onClick={toggle} size="sm" />
+              </Grid.Col>
+            )}
+          </Grid>
+        </Container>
+      </Header>
+
+      {/* 모바일 Drawer */}
+      <Drawer
+        opened={opened}
+        onClose={close}
+        padding="lg"
+        size="80%"
+        title="메뉴"
+      >
+        <Stack spacing="lg">
+
+          <Text fw={600}>템플렛</Text>
+          <Anchor component={Link} to="/wedding/jwds" onClick={close}>
+            정우형 ♥ 다솜씨
+          </Anchor>
+          <Anchor component={Link} to="/wedding/sample" onClick={close}>
+            샘플 청첩장
+          </Anchor>
+
+          <Anchor component={Link} to="/" onClick={close}>
+            고객센터
+          </Anchor>
+
+          <CustomButton to="/" children="로그인" />
+          <CustomButton to="/" children="회원가입" />
+          <CustomButton
+            leftIcon={<IconFriends size={16} />}
+            to="/"
+            children="마이페이지"
+          />
+        </Stack>
+      </Drawer>
+    </>
+  );
 };
 
 export default LandingHeader;
